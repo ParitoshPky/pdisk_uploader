@@ -2,6 +2,14 @@
 
 Upload on Pdisk by Url, File and also by direct forward post from other channel...
 
+## Features
+
+- [x] Post to Post Conversion
+
+- [x] Url Upload
+
+- [ ] Direct File Upload
+
 ### Installation
 
 #### The Easy Way
