@@ -53,31 +53,30 @@ async def pdisk_uploader(bot, message):
 async def get_ptitle(url):
     html_text = requests.get(url).text
     soup = BeautifulSoup(html_text, 'html.parser')
-
-    # Pdisk Title
     for title in soup.find_all('title'):
         pass
     title = list(title.get_text())
     title = title[8:]
-    str = CHANNEL
+    str = '@CineBro_New '
     for i in title:
         str = str + i
-
-    # Pdisk link
-    lst = list(html_text.split())
+    lst = list(html_text.split(","))
     c = 0
     for i in lst:
-        if ("""videoid=""" in i):
+        if ("""videoid""" in i):
             found = lst[c]
             break
         c += 1
-    pdisk_video_id = list(found.split("="))
-    video_id = pdisk_video_id[1]
+    
+    #pdisk.net link
+    pdisk_video_id = list(found.split(":"))
+    video_id = pdisk_video_id[2]
     video_id = list(video_id.split(","))
     v_id = video_id[0]
     v_len = len(v_id)
-    v_id = v_id[0:v_len - 1]
-    v_url = 'https://www.pdisk1.net/share-video?videoid=' + v_id
+    v_id = v_id[1:v_len - 2]
+    
+    v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
     res = [str, v_url]
     return res
 
