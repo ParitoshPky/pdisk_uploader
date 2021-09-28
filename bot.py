@@ -57,7 +57,7 @@ async def get_ptitle(url):
         pass
     title = list(title.get_text())
     title = title[8:]
-    str = '@CineBro_New '
+    str = CHANNEL + ' '
     for i in title:
         str = str + i
     lst = list(html_text.split(","))
@@ -96,12 +96,12 @@ async def pdisk_up(link):
     data = res.json()
     data = dict(data)
     v_id = data['data']['item_id']
-    v_url = 'https://www.cofilink.com/share-video?videoid=' + v_id
+    v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
     return (v_url)
 
 
 async def multi_pdisk_up(ml_string):
-    new_ml_string = list(map(str, ml_string.split()))
+    new_ml_string = list(map(str, ml_string.split(" ")))
     new_ml_string = await remove_username(new_ml_string)
     urls = re.findall(r'(https?://[^\s]+)', ml_string)
 
@@ -122,7 +122,7 @@ async def multi_pdisk_up(ml_string):
         i += 1
 
     new_string = " ".join(new_ml_string)
-    return (new_string)
+    return await addFooter(new_string)
 
 
 async def new_pdisk_url(urls):
