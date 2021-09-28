@@ -1,4 +1,4 @@
-# GPLinksBot 🔥
+# PdiskUP Bot 🔥
 
 Upload on Pdisk by Url, File and also by direct forward post from other channel...
 
