@@ -134,7 +134,7 @@ async def new_pdisk_url(urls):
 
 async def remove_username(new_List):
     for i in new_List:
-        if('@' in i or 't.me' in i):
+        if('@' in i or 't.me' in i or 'https://bit.ly/3m4gabB' or 'https://bit.ly/pdisk_tuts'):
             new_List.remove(i)
     return new_List
 
@@ -142,7 +142,7 @@ async def remove_username(new_List):
 async def addFooter(str):
     footer = """"
 ━━━━━━━━━━━━━━━
-⚙️ How to Download / Watch Online or Change Audio : https://bit.ly/pdisk_tuts
+⚙️ How to Download / Watch Online or Change Audio : https://bit.ly/3m4gabB
 ━━━━━━━━━━━━━━━
 ⭐️JOIN CHANNEL ➡️ t.me/""" + CHANNEL
     return str + footer
