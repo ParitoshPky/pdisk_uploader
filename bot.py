@@ -57,7 +57,7 @@ async def get_ptitle(url):
         pass
     title = list(title.get_text())
     title = title[8:]
-    str = '@CyberBoyPK' + ' '
+    str = '@' + CHANNEL + ' '
     for i in title:
         str = str + i
     lst = list(html_text.split(","))
