@@ -36,23 +36,25 @@ async def pdisk_uploader(bot, message):
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
+
 @bot.on_message(filters.photo & filters.private)
 async def pdisk_uploader(bot, message):
     new_string = str(message.caption)
     try:
         pdisk_link = await multi_pdisk_up(new_string)
-        if(len(pdisk_link)>1020):
+        if(len(pdisk_link) > 1020):
             await message.reply(f'{pdisk_link}', quote=True)
         else:
             await bot.send_photo(message.chat.id, message.photo.file_id, caption=f'{pdisk_link}')
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
+
 async def get_ptitle(url):
     html_text = requests.get(url).text
     soup = BeautifulSoup(html_text, 'html.parser')
 
-    #Pdisk Title
+    # Pdisk Title
     for title in soup.find_all('title'):
         pass
     title = list(title.get_text())
@@ -88,10 +90,10 @@ async def pdisk_up(link):
     else:
         title_new = urlparse(link)
         title_new = os.path.basename(title_new.path)
-        title_pdisk = CHANNEL + title_new
+        title_pdisk = '@' + CHANNEL + title_new
     res = requests.get(
-        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&api_key='+ PDISK_API_KEY +'&dir_id=0&title=' + title_pdisk + '&description=Join_'+ CHANNEL +'_for_more_like_this')
-    
+        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
+
     data = res.json()
     data = dict(data)
     v_id = data['data']['item_id']
@@ -100,7 +102,7 @@ async def pdisk_up(link):
 
 
 async def multi_pdisk_up(ml_string):
-    new_ml_string = list(map(str,ml_string.split()))
+    new_ml_string = list(map(str, ml_string.split()))
     new_ml_string = remove_username(new_ml_string)
     urls = re.findall(r'(https?://[^\s]+)', ml_string)
 
@@ -123,16 +125,27 @@ async def multi_pdisk_up(ml_string):
     new_string = " ".join(new_ml_string)
     return (new_string)
 
+
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
         new_urls.append(await pdisk_up(i))
     return new_urls
 
-def remove_username(new_List):
+
+async def remove_username(new_List):
     for i in new_List:
         if('@' in i or 't.me' in i):
             new_List.remove(i)
     return new_List
+
+
+async def addFooter(str):
+    footer = """"
+━━━━━━━━━━━━━━━
+⚙️ How to Download / Watch Online or Change Audio : https://bit.ly/pdisk_tuts
+━━━━━━━━━━━━━━━
+⭐️JOIN CHANNEL ➡️ t.me/""" + CHANNEL
+    return str + footer
 
 bot.run()
