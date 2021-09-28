@@ -57,7 +57,7 @@ async def get_ptitle(url):
         pass
     title = list(title.get_text())
     title = title[8:]
-    str = '@CineBro_X' + ' '
+    str = '@CyberBoyPK' + ' '
     for i in title:
         str = str + i
     lst = list(html_text.split(","))
@@ -67,15 +67,15 @@ async def get_ptitle(url):
             found = lst[c]
             break
         c += 1
-    
-    #pdisk.net link
+
+    # pdisk.net link
     pdisk_video_id = list(found.split(":"))
     video_id = pdisk_video_id[2]
     video_id = list(video_id.split(","))
     v_id = video_id[0]
     v_len = len(v_id)
     v_id = v_id[1:v_len - 2]
-    
+
     v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
     res = [str, v_url]
     return res
@@ -104,7 +104,7 @@ async def multi_pdisk_up(ml_string):
     new_ml_string = list(map(str, ml_string.split(" ")))
     new_ml_string = await remove_username(new_ml_string)
     new_join_str = "".join(new_ml_string)
-    
+
     urls = re.findall(r'(https?://[^\s]+)', new_join_str)
 
     nml_len = len(new_ml_string)
