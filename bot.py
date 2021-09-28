@@ -142,7 +142,7 @@ async def remove_username(new_List):
 
 
 async def addFooter(str):
-    footer = """"
+    footer = """
 ━━━━━━━━━━━━━━━
 ⚙️ How to Download / Watch Online or Change Audio : https://bit.ly/3m4gabB
 ━━━━━━━━━━━━━━━
