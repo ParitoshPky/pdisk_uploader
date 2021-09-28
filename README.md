@@ -18,4 +18,4 @@ Upload on Pdisk by Url, File and also by direct forward post from other channel.
 ##### Credit
 
 - [Mahesh Bhai](https://github.com/Mahesh0253) For His Repo
-- [Me ParitoshYadav](https://github.com/ParitoshPky) For Editing This Repo
+- [Me Paritosh Yadav](https://github.com/ParitoshPky) For Editing This Repo
