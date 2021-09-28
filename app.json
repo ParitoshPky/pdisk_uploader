@@ -26,7 +26,7 @@
             "value": "d03ea83365f488f7003c885ed132615b"
         },
         "CHANNEL": {
-            "description": "Enter your telegram channel Username (must change)",
+            "description": "Enter your telegram channel Username (must change and without @)",
             "value": "CyberBoyPk"
         }
     },
