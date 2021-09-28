@@ -103,7 +103,7 @@ async def pdisk_up(link):
 
 async def multi_pdisk_up(ml_string):
     new_ml_string = list(map(str, ml_string.split()))
-    new_ml_string = remove_username(new_ml_string)
+    new_ml_string = await remove_username(new_ml_string)
     urls = re.findall(r'(https?://[^\s]+)', ml_string)
 
     nml_len = len(new_ml_string)
