@@ -8,7 +8,9 @@ Upload on Pdisk by Url, File and also by direct forward post from other channel.
 
 - [x] Url Upload
 
-- [ ] Direct File Upload
+- [ ] Direct File / Video Upload
+
+- [ ] Permanent Thumbnail Support
 
 ### Installation
 
