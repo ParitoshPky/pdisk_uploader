@@ -1,0 +1,33 @@
+{
+    "name": "PDisk Uploader Bot",
+    "description": "Upload on Pdisk...",
+    "keywords": [
+        "telegram",
+        "pdisk",
+        "shortner"
+    ],
+    "website": "https://github.com/ParitoshPky/pDisk-Uploader",
+    "repository": "https://github.com/ParitoshPky/pDisk-Uploader",
+    "env": {
+        "BOT_TOKEN": {
+            "description": "Your bot token (must add)",
+            "value": ""
+        },
+        "PDISK_API_KEY": {
+            "description": "Get this from https://www.pdisk.me/use-api (must change)",
+            "value": ""
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
