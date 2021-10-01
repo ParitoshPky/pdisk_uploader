@@ -6,8 +6,8 @@
         "pdisk",
         "shortner"
     ],
-    "website": "https://github.com/ParitoshPky/pDisk-Uploader",
-    "repository": "https://github.com/ParitoshPky/pDisk-Uploader",
+    "website": "https://telegram.me/MyTestBotZ",
+    "repository": "https://github.com/OO7ROBot/pdisk_uploader",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token (must add)",
