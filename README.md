@@ -34,7 +34,7 @@ Upload on Pdisk by Url, File and also by direct forward post from other channel.
 ##### Required Variables
 
 - `BOT_TOKEN`: Create a bot using [@BotFather](https://telegram.dog/BotFather), and get the Telegram API token.
-- `PDISK_API_KEY`: Create [PDisk](https://www.pdisk.me/) account then get this value from [PDisk API](https://www.pdisk.me/use-api)
+- `PDISK_API_KEY`: Create [PDisk](https://www.pdisk.me/earn?referUid=7dd5qb) account then get this value from [PDisk API](https://www.pdisk.me/use-api)
 
 ##### Credit
 
