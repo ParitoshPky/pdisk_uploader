@@ -1,5 +1,6 @@
 from os import environ
 import os
+import time
 from urllib.parse import urlparse
 import aiohttp
 from pyrogram import Client, filters
@@ -130,6 +131,7 @@ async def multi_pdisk_up(ml_string):
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
+        time.sleep(1)
         new_urls.append(await pdisk_up(i))
     return new_urls
 
