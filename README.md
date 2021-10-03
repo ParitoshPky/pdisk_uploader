@@ -4,13 +4,13 @@ Upload on Pdisk by Url, File and also by direct forward post from other channel.
 
 ## Features
 
-- [x] Post to Post Conversion
-
 - [x] Url Upload
 
-- [ ] Direct File / Video Upload
+- [x] Post to Post Conversion
 
 - [x] Permanent Thumbnail Support
+
+- [ ] Direct File / Video Upload
 
 ### Installation
 
