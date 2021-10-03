@@ -28,6 +28,10 @@
         "CHANNEL": {
             "description": "Enter your telegram channel Username (must change and without @)",
             "value": "CyberBoyPk"
+        },
+        "THUMB_URL": {
+            "description": "Enter the thumbnail image url",
+            "value" : ""
         }
     },
     "addons": [],
