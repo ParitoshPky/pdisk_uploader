@@ -12,6 +12,7 @@ API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 PDISK_API_KEY = environ.get('PDISK_API_KEY')
+THUMB_URL = environ.get('THUMB_URL')
 CHANNEL = environ.get('CHANNEL')
 bot = Client('pdisk bot',
              api_id=API_ID,
@@ -25,7 +26,7 @@ bot = Client('pdisk bot',
 async def start(bot, message):
     await message.reply(
         f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
-        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤, 𝐟𝐢𝐥𝐞 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭...\𝐧\𝐧 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky💖")
+        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤, 𝐟𝐢𝐥𝐞 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭... \n 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky_Official💖")
 
 
 @bot.on_message(filters.text & filters.private)
@@ -92,7 +93,7 @@ async def pdisk_up(link):
         title_new = os.path.basename(title_new.path)
         title_pdisk = '@' + CHANNEL + title_new
     res = requests.get(
-        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
+        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this' & ''+THUMB_URL)
     data = res.json()
     data = dict(data)
     print(data)

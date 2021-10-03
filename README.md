@@ -24,6 +24,7 @@ Upload on Pdisk by Url, File and also by direct forward post from other channel.
 - `API_ID`: Get this value from [telgram.org](https://my.telegram.org/apps) Or By Telegram Bot [TgApiextractorBot](https://telegram.dog/TgApiextractorBot)
 - `API_HASH`: Get this value from [telgram.org](https://my.telegram.org/apps)
 - `PDISK_API_KEY`: Create [PDisk](https://www.pdislin.com/earn?referUid=mvrkrd) account then get this value from [PDisk API](https://www.pdisk.me/use-api)
+- `THUMB_URL`: Get permanent image url from [@HK_telegraph_BOT](https://telegram.me/HK_telegraph_BOT)
 
 ##### Credit
 

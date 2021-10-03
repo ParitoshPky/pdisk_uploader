@@ -27,10 +27,10 @@
         },
         "CHANNEL": {
             "description": "Enter your telegram channel Username (must change and without @)",
-            "value": "CyberBoyPk"
+            "value": "ParitoshPky_Official"
         },
         "THUMB_URL": {
-            "description": "Enter the thumbnail image url",
+            "description": "Enter the permanent thumbnail image url can use this @HK_telegraph_BOT",
             "value" : ""
         }
     },
