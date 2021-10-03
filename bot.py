@@ -1,5 +1,6 @@
 from os import environ
 import os
+import time
 from urllib.parse import urlparse
 import aiohttp
 from pyrogram import Client, filters
@@ -96,7 +97,7 @@ async def pdisk_up(link):
     data = dict(data)
     print(data)
     v_id = data['data']['item_id']
-    v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
+    v_url = 'https://www.vidrivers.com/share-video?videoid=' + v_id
     return (v_url)
 
 
@@ -130,6 +131,7 @@ async def multi_pdisk_up(ml_string):
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
+        time.sleep(0.2)
         new_urls.append(await pdisk_up(i))
     return new_urls
 
