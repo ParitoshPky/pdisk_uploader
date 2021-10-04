@@ -98,7 +98,7 @@ async def pdisk_up(link):
     data = dict(data)
     print(data)
     v_id = data['data']['item_id']
-    v_url = 'https://www.vidrivers.com/share-video?videoid=' + v_id
+    v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
     return (v_url)
 
 
