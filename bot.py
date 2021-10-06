@@ -12,8 +12,8 @@ API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 PDISK_API_KEY = environ.get('PDISK_API_KEY')
-THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/1181d9119a13988dfe29c.jpg')
-CHANNEL = environ.get('CHANNEL')
+THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/7a3c7eeb40a1da7909576.jpg')
+CHANNEL = environ.get('moviezbarn')
 bot = Client('pdisk bot',
              api_id=API_ID,
              api_hash=API_HASH,
@@ -26,7 +26,7 @@ bot = Client('pdisk bot',
 async def start(bot, message):
     await message.reply(
         f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
-        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭... \n 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky_Official💖")
+        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭... \n 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @moviezbarn💖")
 
 
 @bot.on_message(filters.text & filters.private)
