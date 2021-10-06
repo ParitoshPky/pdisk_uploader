@@ -10,13 +10,13 @@ Upload on Pdisk by Url, File and also by direct forward post from other channel.
 
 - [x] Permanent Thumbnail Support
 
-- [ ] Direct File / Video Upload
+- [x] Direct File / Video Upload
 
 ### Installation
 
 #### The Easy Way
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy?template=https://github.com/ParitoshPky/pdisk_uploader)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy?template=https://github.com/royfds/pdisk_uploader)
 
 ##### Required Variables
 
