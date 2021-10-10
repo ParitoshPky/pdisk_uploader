@@ -4,6 +4,7 @@ import time
 from urllib.parse import urlparse
 import aiohttp
 from pyrogram import Client, filters
+from bs4 import BeautifulSoup
 import requests
 import re
 
