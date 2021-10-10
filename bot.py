@@ -5,7 +5,6 @@ from urllib.parse import urlparse
 import aiohttp
 from pyrogram import Client, filters
 import requests
-from bs4 import BeautifulSoup
 import re
 
 API_ID = environ.get('API_ID')
