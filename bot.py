@@ -84,7 +84,7 @@ async def get_ptitle(url):
 
 
 async def pdisk_up(link):
-    if ('pdisk' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or link in 'vdshort' or link in 'vidrivers'):
+    if ('pdisk' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or 'vdshort' in link or link in 'vidrivers'):
         res = await get_ptitle(link)
         title_pdisk = res[0]
         link = res[1]
@@ -132,7 +132,7 @@ async def multi_pdisk_up(ml_string):
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
-        time.sleep(0.3)
+        time.sleep(0.2)
         new_urls.append(await pdisk_up(i))
     return new_urls
 
