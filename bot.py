@@ -91,7 +91,7 @@ async def pdisk_up(link):
     else:
         title_new = urlparse(link)
         title_new = os.path.basename(title_new.path)
-        title_pdisk = '@' + CHANNEL + title_new
+        title_pdisk = '@' + CHANNEL +' '+ title_new
     res = requests.get(
         'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&cover_url='+THUMB_URL+'&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
     data = res.json()
