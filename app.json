@@ -1,9 +1,10 @@
 {
-    "name": "DoodStream Uploader Bot",
-    "description": "Upload on DoodStream...",
+    "name": "PDisk Uploader Bot",
+    "description": "Upload on Pdisk...",
     "keywords": [
         "telegram",
-        "Doodstream"
+        "pdisk",
+        "shortner"
     ],
     "website": "https://github.com/ParitoshPky/pDisk-Uploader",
     "repository": "https://github.com/ParitoshPky/pDisk-Uploader",
@@ -12,13 +13,25 @@
             "description": "Your bot token (must add)",
             "value": ""
         },
-        "DOODSTREAM_API_KEY": {
-            "description": "Get this from https://doodstream.com/settings (must change)",
-            "value": "5409gps9tmq6gx3k4c8p"
+        "API_ID": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": "4348312"
+        },
+        "API_HASH": {
+            "description": "Get this value from https://my.telegram.org",
+            "value": "04fc2de75c898324561286e5b10bd619"
+        },
+        "PDISK_API_KEY": {
+            "description": "Get this from https://www.pdisk.me/use-api (must change)",
+            "value": "d03ea83365f488f7003c885ed132615b"
         },
         "CHANNEL": {
             "description": "Enter your telegram channel Username (must change and without @)",
             "value": "ParitoshPky_Official"
+        },
+        "THUMB_URL": {
+            "description": "Enter the permanent thumbnail image url can use this @HK_telegraph_BOT",
+            "value" : ""
         }
     },
     "addons": [],
