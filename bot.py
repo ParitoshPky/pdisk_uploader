@@ -35,6 +35,7 @@ async def pdisk_uploader(bot, message):
     try:
         if 'anonfiles' in new_string:
           pdisk_link = await anonfiles(new_string)
+          print(pdisk_link)
         else:
           pdisk_link = await multi_pdisk_up(new_string)
         await message.reply(f'{pdisk_link}', quote=True)
