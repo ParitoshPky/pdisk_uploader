@@ -33,7 +33,10 @@ async def start(bot, message):
 async def pdisk_uploader(bot, message):
     new_string = str(message.text)
     try:
-        pdisk_link = await multi_pdisk_up(new_string)
+        if 'anonfiles' in new_string:
+          pdisk_link = await anonfiles(new_string)
+        else:
+          pdisk_link = await multi_pdisk_up(new_string)
         await message.reply(f'{pdisk_link}', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
@@ -51,6 +54,15 @@ async def pdisk_uploader(bot, message):
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
+#scrapping anonfiles
+def anonfiles(url):
+    dl_name_pat = r"(https:\/\/cdn-[\d]*.anonfiles.com\/)([\w]{10})(\/[\w-]{19}\/)(.*)\""
+    file_page = requests.get(url).text
+    download_link = re.findall(dl_name_pat, file_page)
+    print(download_link)
+    if download_link[0][0] and download_link[0][1] and download_link[0][2]:
+        ready_download_link = download_link[0][0] + download_link[0][1] + download_link[0][2]
+    return file_page
 
 async def get_ptitle(url):
     html_text = requests.get(url).text
