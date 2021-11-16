@@ -55,7 +55,7 @@ async def pdisk_uploader(bot, message):
         await message.reply(f'Error: {e}', quote=True)
 
 #scrapping anonfiles
-def anonfiles(url):
+async def anonfiles(url):
     dl_name_pat = r"(https:\/\/cdn-[\d]*.anonfiles.com\/)([\w]{10})(\/[\w-]{19}\/)(.*)\""
     file_page = requests.get(url).text
     download_link = re.findall(dl_name_pat, file_page)
