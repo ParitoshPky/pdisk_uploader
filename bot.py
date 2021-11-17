@@ -7,6 +7,7 @@ from pyrogram import Client, filters
 from bs4 import BeautifulSoup
 import requests
 import re
+import lk21
 
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
@@ -57,13 +58,12 @@ async def pdisk_uploader(bot, message):
 
 #scrapping anonfiles
 async def anonfiles(url):
-    dl_name_pat = r"(https:\/\/cdn-[\d]*.anonfiles.com\/)([\w]{10})(\/[\w-]{19}\/)(.*)\""
-    file_page = requests.get(url).text
-    download_link = re.findall(dl_name_pat, file_page)
-    print(download_link)
-    if download_link[0][0] and download_link[0][1] and download_link[0][2]:
-        ready_download_link = download_link[0][0] + download_link[0][1] + download_link[0][2]
-    return file_page
+    """Anonfiles direct link generator
+    Based on https://github.com/zevtyardt/lk21"""
+    bypasser = lk21.Bypass()
+    dl_url=bypasser.bypass_anonfiles(url)
+    print(dl_url)
+    return dl_url
 
 async def get_ptitle(url):
     html_text = requests.get(url).text
