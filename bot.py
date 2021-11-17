@@ -63,7 +63,7 @@ async def anonfiles(url):
     bypasser = lk21.Bypass()
     dl_url=bypasser.bypass_anonfiles(url)
     print(dl_url)
-    return dl_url
+    return dl_url.replace(' ','%20')
 
 async def get_ptitle(url):
     html_text = requests.get(url).text
