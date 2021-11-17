@@ -7,7 +7,6 @@ from pyrogram import Client, filters
 from bs4 import BeautifulSoup
 import requests
 import re
-import lk21
 
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
@@ -30,7 +29,7 @@ async def start(bot, message):
         "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭... \n 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky_Official💖")
 
 
-@bot.on_message(filters.text)
+@bot.on_message(filters.text & filters.private)
 async def pdisk_uploader(bot, message):
     new_string = str(message.text)
     try:
@@ -40,7 +39,7 @@ async def pdisk_uploader(bot, message):
         await message.reply(f'Error: {e}', quote=True)
 
 
-@bot.on_message(filters.photo)
+@bot.on_message(filters.photo & filters.private)
 async def pdisk_uploader(bot, message):
     new_string = str(message.caption)
     try:
@@ -52,14 +51,6 @@ async def pdisk_uploader(bot, message):
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
 
-#scrapping anonfiles
-async def anonfiles(url):
-    """Anonfiles direct link generator
-    Based on https://github.com/zevtyardt/lk21"""
-    bypasser = lk21.Bypass()
-    dl_url=bypasser.bypass_anonfiles(url)
-    print(dl_url)
-    return dl_url.replace(' ','%20')
 
 async def get_ptitle(url):
     html_text = requests.get(url).text
@@ -135,18 +126,14 @@ async def multi_pdisk_up(ml_string):
         i += 1
 
     new_string = " ".join(new_ml_string)
-    #await addFooter(new_string)
-    return new_string
+    return await addFooter(new_string)
 
 
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
-        if 'anonfiles' in i:
-          new_urls.append(await anonfiles(i))
-        else:
-          time.sleep(0.2)
-          new_urls.append(await pdisk_up(i))
+        time.sleep(0.2)
+        new_urls.append(await pdisk_up(i))
     return new_urls
 
 
