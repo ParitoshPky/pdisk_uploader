@@ -34,11 +34,7 @@ async def start(bot, message):
 async def pdisk_uploader(bot, message):
     new_string = str(message.text)
     try:
-        if 'anonfiles' in new_string:
-          pdisk_link = await anonfiles(new_string)
-          print(pdisk_link)
-        else:
-          pdisk_link = await multi_pdisk_up(new_string)
+        pdisk_link = await multi_pdisk_up(new_string)
         await message.reply(f'{pdisk_link}', quote=True)
     except Exception as e:
         await message.reply(f'Error: {e}', quote=True)
@@ -145,8 +141,11 @@ async def multi_pdisk_up(ml_string):
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
-        time.sleep(0.2)
-        new_urls.append(await pdisk_up(i))
+        if 'anonfiles' in i:
+          new_urls.append(await anonfiles(i))
+        else:
+          time.sleep(0.2)
+          new_urls.append(await pdisk_up(i))
     return new_urls
 
 
