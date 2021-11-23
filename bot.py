@@ -114,7 +114,7 @@ async def pdisk_up(link):
       res = requests.get('http://linkapi.net/open/clone_item?item_id='+ item_id +'&api_key=' + PDISK_API_KEY)
       v_url = 'https://pdisks.com/share-video?videoid=' + dict(res.json())['data']['item_id']
     else:
-      await message.reply(f'pdiisk is under upgrade wait for new updates... contact me @ParitoshPky_Official', quote=True)
+      await send_message(f'pdiisk is under upgrade wait for new updates... contact me @ParitoshPky_Official')
       return
     return (v_url)
 
