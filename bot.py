@@ -101,14 +101,10 @@ async def pdisk_uploader(bot, message):
 #     return (v_url)
 
 async def get_pv_id(url):
-  html_text = list((requests.get(url).text).split(','))
-  c = 0
-  for i in html_text:
-      if ("""videoid""" in i):
-          found = lst[c]
-          break
-      c += 1
-  return list(found.split(":"))[2].split(',')[0][1:-2]
+  lst = list((requests.get(url).text).split(','))
+  for i in range(len(lst)):
+      if ('videoid' in lst[i]):
+          return list(lst[i].split(":"))[2].split(',')[0][1:-2]
 
 
 #temporary till upload not works...
