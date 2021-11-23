@@ -100,7 +100,7 @@ async def pdisk_uploader(bot, message):
 #     v_url = 'https://pdisks.com/share-video?videoid=' + v_id
 #     return (v_url)
 
-async def pv_id(url):
+async def get_pv_id(url):
   html_text = list((requests.get(url).text).split(','))
   c = 0
   for i in html_text:
