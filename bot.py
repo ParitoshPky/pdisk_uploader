@@ -52,53 +52,74 @@ async def pdisk_uploader(bot, message):
         await message.reply(f'Error: {e}', quote=True)
 
 
-async def get_ptitle(url):
-    html_text = requests.get(url).text
-    soup = BeautifulSoup(html_text, 'html.parser')
-    for title in soup.find_all('title'):
-        pass
-    title = list(title.get_text())
-    title = title[8:]
-    str = 't.me/' + CHANNEL + ' '
-    for i in title:
-        str = str + i
-    lst = list(html_text.split(","))
-    c = 0
-    for i in lst:
-        if ("""videoid""" in i):
-            found = lst[c]
-            break
-        c += 1
+# async def get_ptitle(url):
+#     html_text = requests.get(url).text
+#     soup = BeautifulSoup(html_text, 'html.parser')
+#     for title in soup.find_all('title'):
+#         pass
+#     title = list(title.get_text())
+#     title = title[8:]
+#     str = 't.me/' + CHANNEL + ' '
+#     for i in title:
+#         str = str + i
+#     lst = list(html_text.split(","))
+#     c = 0
+#     for i in lst:
+#         if ("""videoid""" in i):
+#             found = lst[c]
+#             break
+#         c += 1
 
-    # pdisk.net link
-    pdisk_video_id = list(found.split(":"))
-    video_id = pdisk_video_id[2]
-    video_id = list(video_id.split(","))
-    v_id = video_id[0]
-    v_len = len(v_id)
-    v_id = v_id[1:v_len - 2]
+#     # pdisk.net link
+#     pdisk_video_id = list(found.split(":"))
+#     video_id = pdisk_video_id[2]
+#     video_id = list(video_id.split(","))
+#     v_id = video_id[0]
+#     v_len = len(v_id)
+#     v_id = v_id[1:v_len - 2]
 
-    v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
-    res = [str, v_url]
-    return res
+#     v_url = 'https://www.pdisks.com/share-video?videoid=' + v_id
+#     res = [str, v_url]
+#     return res
+
+# async def pdisk_up(link):
+#     if ('pdisk' in link or 'wslinker' in link or 'cdinks' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or 'vdshort' in link or link in 'vidrivers' or 'dplinks' in link):
+#         res = await get_ptitle(link)
+#         title_pdisk = res[0]
+#         link = res[1]
+#     else:
+#         title_new = urlparse(link)
+#         title_new = os.path.basename(title_new.path)
+#         title_pdisk = '@' + CHANNEL +' '+ title_new
+#     res = requests.get(
+#         'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&cover_url='+THUMB_URL+'&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
+#     data = res.json()
+#     data = dict(data)
+#     print(data)
+#     v_id = data['data']['item_id']
+#     v_url = 'https://pdisks.com/share-video?videoid=' + v_id
+#     return (v_url)
+
+async def pv_id(url):
+  html_text = list((requests.get(url).text).split(','))
+  c = 0
+  for i in html_text:
+      if ("""videoid""" in i):
+          found = lst[c]
+          break
+      c += 1
+  return list(found.split(":"))[2].split(',')[0][1:-2]
 
 
+#temporary till upload not works...
 async def pdisk_up(link):
     if ('pdisk' in link or 'wslinker' in link or 'cdinks' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or 'vdshort' in link or link in 'vidrivers' or 'dplinks' in link):
-        res = await get_ptitle(link)
-        title_pdisk = res[0]
-        link = res[1]
+      item_id = await get_pv_id(link)
+      res = requests.get('http://linkapi.net/open/clone_item?item_id='+ item_id +'&api_key=' + PDISK_API_KEY)
+      v_url = 'https://pdisks.com/share-video?videoid=' + dict(res.json())['data']['item_id']
     else:
-        title_new = urlparse(link)
-        title_new = os.path.basename(title_new.path)
-        title_pdisk = '@' + CHANNEL +' '+ title_new
-    res = requests.get(
-        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&cover_url='+THUMB_URL+'&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
-    data = res.json()
-    data = dict(data)
-    print(data)
-    v_id = data['data']['item_id']
-    v_url = 'https://weeshares.net/share-video?videoid=' + v_id
+      await message.reply(f'pdiisk is under upgrade wait for new updates... contact me @ParitoshPky_Official', quote=True)
+      return
     return (v_url)
 
 
